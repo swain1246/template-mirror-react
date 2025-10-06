@@ -1,10 +1,81 @@
+// src/components/Footer.tsx
+import { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 const Footer = () => {
+  const tweets = [
+    {
+      id: 1,
+      name: "@movers",
+      content: "We're there for you anytime you need us. Contact us for a consultation, estimate or any question you might have about your project or our work.",
+      time: "~2 days ago"
+    },
+    {
+      id: 2,
+      name: "@movers",
+      content: "Just completed another successful move! Our team takes pride in making relocation stress-free for our clients. Thank you for choosing us!",
+      time: "~4 days ago"
+    },
+    {
+      id: 3,
+      name: "@movers",
+      content: "Moving tip of the day: Label boxes by room and priority. This makes unpacking much easier and helps you settle into your new home faster!",
+      time: "~1 week ago"
+    }
+  ];
+
+  const [currentTweet, setCurrentTweet] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTweet((prev) => (prev === tweets.length - 1 ? 0 : prev + 1));
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [tweets.length]);
+
   return (
     <footer className="bg-footerDark text-white">
+      {/* Twitter Section */}
+      <div 
+        className="relative bg-cover bg-center py-12" 
+        style={{ backgroundImage: "url('https://eyecix.com/html/moverspackers/extra-images/twitter-feed-img.jpg')" }}
+      >
+        {/* Yellow transparent overlay with reduced opacity */}
+        <div className="absolute inset-0 bg-yellow-500 bg-opacity-90"></div>
+        
+        {/* Content with 10% spacing on left and right */}
+        <div className="relative container mx-auto px-[10%]">
+          <div className="flex items-start">
+            {/* Twitter icon and separator */}
+            <div className="flex items-center pr-6">
+              <Twitter className="text-white fill-current" size={90} strokeWidth={0} />
+              <div className="h-24 border-l border-white ml-4"></div>
+            </div>
+            
+            {/* Twitter content with sliding effect */}
+            <div className="flex-1 overflow-hidden">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentTweet * 100}%)` }}
+              >
+                {tweets.map((tweet) => (
+                  <div 
+                    key={tweet.id} 
+                    className="w-full flex-shrink-0 text-left"
+                  >
+                    <p className="font-bold text-lg">{tweet.name}</p>
+                    <p className="mb-2">{tweet.content}</p>
+                    <p className="text-sm text-gray-200">{tweet.time}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Contact Cards Section */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">

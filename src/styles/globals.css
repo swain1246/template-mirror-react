@@ -1,0 +1,58 @@
+/* src/styles/globals.css */
+
+/* Testimonials Swiper Custom Styles */
+.testimonial-swiper .swiper-pagination-bullet {
+  background-color: white;
+  opacity: 0.5;
+  width: 12px;
+  height: 12px;
+}
+
+.testimonial-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: #FBBF24; /* yellow-500 */
+}
+
+.testimonial-swiper .swiper-button-next,
+.testimonial-swiper .swiper-button-prev {
+  color: white;
+}
+
+.testimonial-swiper .swiper-button-next:after,
+.testimonial-swiper .swiper-button-prev:after {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.testimonial-swiper .swiper-button-prev {
+  left: 10px;
+}
+
+.testimonial-swiper .swiper-button-next {
+  right: 10px;
+}
+
+
+
+
+/* --- Partner Logo Marquee Animation --- */
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  animation: marqueeScroll 25s linear infinite;
+  will-change: transform;
+}
+
+/* Optional hover effects */
+.marquee-track:hover {
+  animation-play-state: paused;
+}

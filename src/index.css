@@ -108,3 +108,84 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+
+/* Partner logos infinite scroll effect */
+@keyframes partner-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-partner-marquee {
+  display: flex;
+  animation: partner-marquee 30s linear infinite;
+  width: max-content;
+}
+
+.animate-partner-marquee:hover {
+  animation-play-state: paused; /* Pause on hover */
+}
+
+
+
+
+/* src/index.css */
+
+/* src/index.css */
+
+/* Hero Section Animations */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-70px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) translateZ(-50px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 3s ease-in-out infinite;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 3s ease-in-out infinite;
+  animation-delay: 1s;
+  opacity: 0;
+}
