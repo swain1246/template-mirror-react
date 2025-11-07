@@ -42,66 +42,68 @@ const ProcessSteps = () => {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center gap-6 sm:gap-8 md:gap-12 px-4 sm:px-6 md:px-16 lg:px-24 py-8 sm:py-12">
-      {processSteps.map((step, index) => (
-        <React.Fragment key={step.id}>
-          <div className="flex flex-col items-center group">
-            <div className="relative">
-              {/* Process number circle - hidden on hover */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-900 flex items-center justify-center text-gray-200 text-xs sm:text-sm font-bold z-10 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                {step.id}
-              </div>
-              {/* Icon container with custom border that has gap at top */}
-              <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 relative">
-                {/* Custom border with gap at top center */}
-                <div className="absolute inset-0 border-2 border-gray-700 group-hover:border-gray-800 transition-colors duration-300"></div>
-                {/* White overlay to create gap at top center */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-8 sm:w-10 md:w-12 h-3 sm:h-4 bg-white group-hover:bg-gray-800 transition-colors duration-1000"></div>
-                {/* Background overlay for hover effect */}
-                <div className="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded pointer-events-none"></div>
-                {/* Icon content - with higher z-index to stay above background */}
-                <div className="w-full h-full flex items-center justify-center relative z-10">
-                  <div className="text-gray-700 group-hover:text-white transition-colors duration-300">
-                    {step.icon}
+    <div className="w-full max-w-7xl mx-auto px-2 xs:px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-6 xs:py-8 sm:py-12">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4 xs:gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+        {processSteps.map((step, index) => (
+          <React.Fragment key={step.id}>
+            <div className="flex flex-col items-center group w-full md:w-auto">
+              <div className="relative">
+                {/* Process number circle - hidden on hover */}
+                <div className="absolute -top-3 xs:-top-4 left-1/2 transform -translate-x-1/2 w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-full bg-gray-900 flex items-center justify-center text-gray-200 text-xs xs:text-xs sm:text-sm font-bold z-10 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                  {step.id}
+                </div>
+                {/* Icon container with custom border that has gap at top */}
+                <div className="w-20 h-20 xs:w-24 xs:h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 relative">
+                  {/* Custom border with gap at top center */}
+                  <div className="absolute inset-0 border-2 border-gray-700 group-hover:border-gray-800 transition-colors duration-300"></div>
+                  {/* White overlay to create gap at top center */}
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-6 xs:w-8 sm:w-10 md:w-12 h-2 xs:h-3 sm:h-4 bg-white group-hover:bg-gray-800 transition-colors duration-1000"></div>
+                  {/* Background overlay for hover effect */}
+                  <div className="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded pointer-events-none"></div>
+                  {/* Icon content - with higher z-index to stay above background */}
+                  <div className="w-full h-full flex items-center justify-center relative z-10">
+                    <div className="text-gray-700 group-hover:text-white transition-colors duration-300">
+                      {step.icon}
+                    </div>
+                  </div>
+                  {/* Chevron icon - appears on hover at right center border */}
+                  <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                    <div className="w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 rounded-full bg-yellow-500 flex items-center justify-center border-2 xs:border-4 border-white">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" className="bi bi-chevron-double-right text-white" viewBox="0 0 16 16">
+                        <path fillRule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
+                        <path fillRule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
+                      </svg>
+                    </div>
                   </div>
                 </div>
-                {/* Chevron icon - appears on hover at right center border */}
-                <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-yellow-500 flex items-center justify-center border-4 border-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-chevron-double-right text-white" viewBox="0 0 16 16">
-                      <path fillRule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
-                      <path fillRule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
-                    </svg>
-                  </div>
-                </div>
+              </div>
+              {/* Process title - unchanged color on hover */}
+              <div className="mt-2 xs:mt-3 text-center font-semibold text-gray-900 tracking-wide text-xs xs:text-sm sm:text-base">
+                {step.title}
               </div>
             </div>
-            {/* Process title - unchanged color on hover */}
-            <div className="mt-3 text-center font-semibold text-gray-900 tracking-wide text-sm sm:text-base">
-              {step.title}
-            </div>
-          </div>
-          
-          {/* Arrow between steps (not after the last one) - moved slightly up */}
-          {index < processSteps.length - 1 && (
-            <div className="hidden md:flex items-center justify-center text-gray-900 self-center -mt-6">
-              {/* Using the provided SVG arrow */}
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" className="h-6 w-6 sm:h-8 sm:w-8 fill-current">
-                <path d="M598.6 297.4C611.1 309.9 611.1 330.2 598.6 342.7L470.6 470.7C461.4 479.9 447.7 482.6 435.7 477.6C423.7 472.6 416 460.9 416 448L416 384L80 384C53.5 384 32 362.5 32 336L32 304C32 277.5 53.5 256 80 256L416 256L416 192C416 179.1 423.8 167.4 435.8 162.4C447.8 157.4 461.5 160.2 470.7 169.3L598.7 297.3z"/>
-              </svg>
-            </div>
-          )}
-          
-          {/* Mobile arrow indicator */}
-          {index < processSteps.length - 1 && (
-            <div className="flex md:hidden items-center justify-center text-gray-900">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </div>
-          )}
-        </React.Fragment>
-      ))}
+            
+            {/* Arrow between steps (not after the last one) - moved slightly up */}
+            {index < processSteps.length - 1 && (
+              <div className="hidden md:flex items-center justify-center text-gray-900 self-center -mt-6">
+                {/* Using the provided SVG arrow */}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 fill-current">
+                  <path d="M598.6 297.4C611.1 309.9 611.1 330.2 598.6 342.7L470.6 470.7C461.4 479.9 447.7 482.6 435.7 477.6C423.7 472.6 416 460.9 416 448L416 384L80 384C53.5 384 32 362.5 32 336L32 304C32 277.5 53.5 256 80 256L416 256L416 192C416 179.1 423.8 167.4 435.8 162.4C447.8 157.4 461.5 160.2 470.7 169.3L598.7 297.3z"/>
+                </svg>
+              </div>
+            )}
+            
+            {/* Mobile arrow indicator */}
+            {index < processSteps.length - 1 && (
+              <div className="flex md:hidden items-center justify-center text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 xs:h-6 xs:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </div>
+            )}
+          </React.Fragment>
+        ))}
+      </div>
     </div>
   );
 };

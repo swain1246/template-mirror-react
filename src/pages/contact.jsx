@@ -164,8 +164,8 @@ const Contact = () => {
                     <Phone className="text-amber-500 ml-2" size={20} />
                   </div>
                   <div className="text-sm space-y-1">
-                    <p>+91 98765 43210</p>
-                    <p>+91 87654 32109</p>
+                    <p>+91 8249778018</p>
+                    {/* <p>+91 87654 32109</p> */}
                   </div>
                 </div>
 
@@ -177,8 +177,8 @@ const Contact = () => {
                     <Mail className="text-amber-500 ml-2" size={20} />
                   </div>
                   <div className="text-sm space-y-1">
-                    <p>info@drmmovers.com</p>
-                    <p>support@drmmovers.com</p>
+                    {/* <p>info@drmmovers.com</p> */}
+                    <p>drmpackersandmovers@gmail.com</p>
                   </div>
                 </div>
 
@@ -190,8 +190,10 @@ const Contact = () => {
                     <MapPin className="text-amber-500 ml-2" size={20} />
                   </div>
                   <div className="text-sm space-y-1">
-                    <p>123, MG Road, Andheri East</p>
-                    <p>Mumbai, Maharashtra, 400093</p>
+                    <p>DRM PACKERS AND MOVERS, <br />
+          PLOT NO 1530, SATYAVIHAR, </p>
+                    <p>Rasulgarh, MANCHESWAR, BHUBANESWAR,
+          Khurdha, PIN - 751010</p>
                   </div>
                 </div>
 
@@ -235,7 +237,7 @@ const Contact = () => {
 
             <div className="flex justify-center mb-16">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.6657844053415!2d72.85616447465032!3d19.097403252642077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c82d8f3170df%3A0xd1b1ee38a3e50a37!2sAndheri%20East%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1698041323874!5m2!1sen!2sin"
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5186.714601081376!2d85.86803804496721!3d20.309686674725402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a190a3f3fffffff%3A0xab42b8e8b31fc49f!2sDRM%20packers%20and%20movers!5e1!3m2!1sen!2sin!4v1762497918288!5m2!1sen!2sin" 
                 width="100%"
                 height="350"
                 allowFullScreen={true}

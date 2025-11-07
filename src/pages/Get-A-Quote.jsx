@@ -358,8 +358,8 @@ const handleSubmit = async (e) => {
                 <Phone className="text-amber-500 ml-2" size={20} />
               </div>
               <div className="text-xs sm:text-sm space-y-1">
-                <p>00 987 654 32</p>
-                <p>+123 456 78</p>
+                <p>+91 8249778018</p>
+                {/* <p>+123 456 78</p> */}
               </div>
             </div>
             {/* Email */}
@@ -369,8 +369,8 @@ const handleSubmit = async (e) => {
                 <Mail className="text-amber-500 ml-2" size={20} />
               </div>
               <div className="text-xs sm:text-sm space-y-1">
-                <p>info@example.com</p>
-                <p>Movers@abc.com</p>
+                <p>drmpackersandmovers@gmail.com</p>
+                {/* <p>Movers@abc.com</p> */}
               </div>
             </div>
             {/* Location */}
@@ -380,8 +380,9 @@ const handleSubmit = async (e) => {
                 <MapPin className="text-amber-500 ml-2" size={20} />
               </div>
               <div className="text-xs sm:text-sm space-y-1">
-                <p>Vestibulum maximus</p>
-                <p>convallis egestas</p>
+                <p>DRM PACKERS AND MOVERS,
+PLOT NO 1530, SATYAVIHAR, Rasulgarh, MANCHESWAR, BHUBANESWAR, Khurdha, PIN - 751010</p>
+                {/* <p>convallis egestas</p> */}
               </div>
             </div>
             {/* Social Media */}
@@ -391,8 +392,8 @@ const handleSubmit = async (e) => {
                 <Facebook className="text-amber-500 ml-2" size={20} />
               </div>
               <div className="text-xs sm:text-sm space-y-1">
-                <p>@MoversPackers</p>
-                <p>facebook.com/Movers</p>
+                <a href="https://www.facebook.com/p/DRM-Packers-And-Movers-100090288291557/" target="blank">@DRM-Packers-And-Movers</a>
+                {/* <p>facebook.com/Movers</p> */}
               </div>
             </div>
           </div>

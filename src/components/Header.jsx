@@ -44,10 +44,15 @@ const Header = () => {
     </div>
 
     <div className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-center md:text-left">
-      <div className="flex items-center gap-2">
-        <MapPin size={14} className="text-accent" />
-        <span>Bhubaneswar, Odisha, IND</span>
-      </div>
+     <a
+  href="https://maps.app.goo.gl/YLZyhnRDipzkNuRE8"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-2 cursor-pointer hover:text-accent transition"
+>
+  <MapPin size={14} className="text-accent" />
+  <span>Bhubaneswar, Odisha, IND</span>
+</a>
       <div className="hidden md:flex items-center gap-2">
         <span className="text-gray-500">|</span>
         <Phone size={14} className="text-accent" />
@@ -56,7 +61,7 @@ const Header = () => {
       </div>
       <div className="flex items-center gap-2">
         <Mail size={14} className="text-accent" />
-        <span>info@example.com</span>
+        <span>drmpackersandmovers@gmail.com</span>
       </div>
     </div>
   </div>
