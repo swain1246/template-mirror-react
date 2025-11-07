@@ -1,5 +1,13 @@
 // src/components/Header.tsx
-import { Phone, Mail, MapPin, FileText, ChevronDown, Menu, X } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  FileText,
+  ChevronDown,
+  Menu,
+  X,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
@@ -15,7 +23,6 @@ const Header = () => {
     return false;
   };
 
-
   const handleMouseEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = window.setTimeout(() => setIsTeamOpen(true), 150);
@@ -28,45 +35,49 @@ const Header = () => {
 
   return (
     <>
-    
-   {/* Top Bar — hidden on small screens */}
-<div className="hidden md:block bg-gray-800 text-white py-3 text-sm">
-  <div className="container mx-auto px-4 md:px-16 flex flex-col md:flex-row items-center justify-between gap-3">
-    <div className="flex flex-wrap items-center gap-4">
-      <a href="/Contact" className="flex items-center gap-2 hover:text-accent transition-colors">
-        <Phone size={14} className="text-accent" />
-        <span>Contact Us</span>
-      </a>
-      <a href="/Terms" className="flex items-center gap-2 hover:text-accent transition-colors">
-        <FileText size={14} className="text-accent" />
-        <span>Terms & Conditions</span>
-      </a>
-    </div>
+      {/* Top Bar — hidden on small screens */}
+      <div className="hidden md:block bg-gray-800 text-white py-3 text-sm">
+        <div className="container mx-auto px-4 md:px-16 flex flex-col md:flex-row items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href="/Contact"
+              className="flex items-center gap-2 hover:text-accent transition-colors"
+            >
+              <Phone size={14} className="text-accent" />
+              <span>Contact Us</span>
+            </a>
+            <a
+              href="/Terms"
+              className="flex items-center gap-2 hover:text-accent transition-colors"
+            >
+              <FileText size={14} className="text-accent" />
+              <span>Terms & Conditions</span>
+            </a>
+          </div>
 
-    <div className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-center md:text-left">
-     <a
-  href="https://maps.app.goo.gl/YLZyhnRDipzkNuRE8"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex items-center gap-2 cursor-pointer hover:text-accent transition"
->
-  <MapPin size={14} className="text-accent" />
-  <span>Bhubaneswar, Odisha, IND</span>
-</a>
-      <div className="hidden md:flex items-center gap-2">
-        <span className="text-gray-500">|</span>
-        <Phone size={14} className="text-accent" />
-        <span>+91 8249778018</span>
-        <span className="text-gray-500">|</span>
+          <div className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-center md:text-left">
+            <a
+              href="https://maps.app.goo.gl/YLZyhnRDipzkNuRE8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 cursor-pointer hover:text-accent transition"
+            >
+              <MapPin size={14} className="text-accent" />
+              <span>Bhubaneswar, Odisha, IND</span>
+            </a>
+            <div className="hidden md:flex items-center gap-2">
+              <span className="text-gray-500">|</span>
+              <Phone size={14} className="text-accent" />
+              <span><a href="tel:+91 8249778018">+91 8249778018</a></span>
+              <span className="text-gray-500">|</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail size={14} className="text-accent" />
+              <span><a href="mailto:drmpackersandmovers@gmail.com">drmpackersandmovers@gmail.com</a></span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="flex items-center gap-2">
-        <Mail size={14} className="text-accent" />
-        <span>drmpackersandmovers@gmail.com</span>
-      </div>
-    </div>
-  </div>
-</div>
-
 
       {/* Main Header */}
       <header className="bg-background border-b-4 border-yellow-500 py-3 relative z-50">
@@ -94,8 +105,9 @@ const Header = () => {
           <nav className="hidden lg:flex items-center gap-10">
             <Link
               to="/"
-              className={`text-sm font-semibold hover:text-accent transition-colors ${isActiveLink("/") ? "border-b-2 border-accent pb-1" : ""
-                }`}
+              className={`text-sm font-semibold hover:text-accent transition-colors ${
+                isActiveLink("/") ? "border-b-2 border-accent pb-1" : ""
+              }`}
             >
               HOME
             </Link>
@@ -107,23 +119,22 @@ const Header = () => {
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`text-sm font-semibold hover:text-accent transition-colors flex items-center gap-1 ${isActiveLink("/About") ||
-                    isActiveLink("/OurTeam") ||
-                    isActiveLink("/Faq") ||
-                    isActiveLink("/Ourtestimonoal") ||
-                    isActiveLink("/Our-presence")
+                className={`text-sm font-semibold hover:text-accent transition-colors flex items-center gap-1 ${
+                  isActiveLink("/About") ||
+                  isActiveLink("/OurTeam") ||
+                  isActiveLink("/Faq") ||
+                  isActiveLink("/Ourtestimonoal") ||
+                  isActiveLink("/Our-presence")
                     ? "border-b-2 border-accent pb-1"
                     : ""
-                  }`}
+                }`}
               >
                 ABOUT US
                 <ChevronDown size={14} />
               </button>
 
               {isTeamOpen && (
-                <ul
-                  className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg py-2 rounded-lg z-50"
-                >
+                <ul className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg py-2 rounded-lg z-50">
                   {[
                     { path: "/About", label: "About Us" },
                     { path: "/OurTeam", label: "Our Team" },
@@ -135,8 +146,11 @@ const Header = () => {
                     <li key={path}>
                       <Link
                         to={path}
-                        className={`block px-4 py-2 text-sm hover:bg-accent hover:text-white transition-colors ${isActiveLink(path) ? "bg-accent text-white" : "text-gray-700"
-                          }`}
+                        className={`block px-4 py-2 text-sm hover:bg-accent hover:text-white transition-colors ${
+                          isActiveLink(path)
+                            ? "bg-accent text-white"
+                            : "text-gray-700"
+                        }`}
                       >
                         {label}
                       </Link>
@@ -148,24 +162,31 @@ const Header = () => {
 
             <Link
               to="/Servicedetail"
-              className={`text-sm font-semibold hover:text-accent transition-colors ${isActiveLink("/Servicedetail") ? "border-b-2 border-accent pb-1" : ""
-                }`}
+              className={`text-sm font-semibold hover:text-accent transition-colors ${
+                isActiveLink("/Servicedetail")
+                  ? "border-b-2 border-accent pb-1"
+                  : ""
+              }`}
             >
               SERVICES
             </Link>
 
             <Link
               to="/Successstory"
-              className={`text-sm font-semibold hover:text-accent transition-colors ${isActiveLink("/Successstory") ? "border-b-2 border-accent pb-1" : ""
-                }`}
+              className={`text-sm font-semibold hover:text-accent transition-colors ${
+                isActiveLink("/Successstory")
+                  ? "border-b-2 border-accent pb-1"
+                  : ""
+              }`}
             >
               SUCCESS STORY
             </Link>
 
             <Link
               to="/Contact"
-              className={`text-sm font-semibold hover:text-accent transition-colors ${isActiveLink("/Contact") ? "border-b-2 border-accent pb-1" : ""
-                }`}
+              className={`text-sm font-semibold hover:text-accent transition-colors ${
+                isActiveLink("/Contact") ? "border-b-2 border-accent pb-1" : ""
+              }`}
             >
               CONTACT US
             </Link>
@@ -188,8 +209,9 @@ const Header = () => {
               <Link
                 to="/"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`hover:text-accent transition ${isActiveLink("/") ? "text-accent" : "text-foreground"
-                  }`}
+                className={`hover:text-accent transition ${
+                  isActiveLink("/") ? "text-accent" : "text-foreground"
+                }`}
               >
                 HOME
               </Link>
@@ -200,7 +222,11 @@ const Header = () => {
                   onClick={() => setIsTeamOpen(!isTeamOpen)}
                   className="flex items-center justify-between w-full text-foreground hover:text-accent"
                 >
-                  ABOUT US <ChevronDown size={14} className={`${isTeamOpen ? "rotate-180" : ""} transition`} />
+                  ABOUT US{" "}
+                  <ChevronDown
+                    size={14}
+                    className={`${isTeamOpen ? "rotate-180" : ""} transition`}
+                  />
                 </button>
                 {isTeamOpen && (
                   <ul className="pl-4 mt-2 flex flex-col gap-1">
@@ -211,7 +237,6 @@ const Header = () => {
                       { path: "/Ourtestimonoal", label: "Testimonials" },
                       { path: "/Our-presence", label: "Our Presence" },
                       { path: "/Enquiry", label: "Enquiry" },
-
                     ].map(({ path, label }) => (
                       <li key={path}>
                         <Link
@@ -230,24 +255,31 @@ const Header = () => {
               <Link
                 to="/Servicedetail"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`hover:text-accent transition ${isActiveLink("/Servicedetail") ? "text-accent" : "text-foreground"
-                  }`}
+                className={`hover:text-accent transition ${
+                  isActiveLink("/Servicedetail")
+                    ? "text-accent"
+                    : "text-foreground"
+                }`}
               >
                 SERVICES
               </Link>
               <Link
                 to="/Successstory"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`hover:text-accent transition ${isActiveLink("/Successstory") ? "text-accent" : "text-foreground"
-                  }`}
+                className={`hover:text-accent transition ${
+                  isActiveLink("/Successstory")
+                    ? "text-accent"
+                    : "text-foreground"
+                }`}
               >
                 SUCCESS STORY
               </Link>
               <Link
                 to="/Contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`hover:text-accent transition ${isActiveLink("/Contact") ? "text-accent" : "text-foreground"
-                  }`}
+                className={`hover:text-accent transition ${
+                  isActiveLink("/Contact") ? "text-accent" : "text-foreground"
+                }`}
               >
                 CONTACT US
               </Link>
