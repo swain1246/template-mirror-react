@@ -2,200 +2,425 @@ import { useState } from "react";
 import Layout from "@/components/Layout"; // ✅ Assuming you have a Layout wrapper
 import { Button } from "@/components/ui/button"; // ✅ Using your existing button component
 import { Link } from "react-router-dom";
+import { submitMoveRequest } from "@/components/api/moveRequestApi"
+import { Phone, Mail, MapPin, Facebook, Loader2 } from "lucide-react";
+import Partners from "../components/Partners";
 const Enquiry = () => {
+ // Form state
   const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
+    firstName: "",
+    lastName: "",
     email: "",
-    city: "",
+    phone: "",
+    country: "",
+    zip: "",
     address: "",
-    service: "",
-    pickupLocation: "",
-    dropLocation: "",
+    moveDate: "",
+    residenceType: "",
+    fromZip: "",
+    fromLocation: "",
+    toZip: "",
+    toLocation: "",
   });
 
+  // State for submission status, error messages, and loading
+  const [status, setStatus] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Handle input changes
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you! Your enquiry has been submitted.");
+  // Handle form submission
+ // Handle form submission
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setStatus("");
+  setError("");
+  setIsLoading(true);
+
+  if (!formData.firstName || !formData.lastName || !formData.email) {
+    setError("Please fill out all required fields (First Name, Last Name, Email).");
+    setIsLoading(false);
+    return;
+  }
+
+  try {
+    const result = await submitMoveRequest(formData);
+    setStatus("Your enquiry has been submitted successfully!");
+    console.log("Response:", result);
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      country: "",
+      zip: "",
+      address: "",
+      moveDate: "",
+      residenceType: "",
+      fromZip: "",
+      fromLocation: "",
+      toZip: "",
+      toLocation: "",
+    });
+  } catch (err) {
+    console.error("Submission error:", err);
+    setError("An error occurred while submitting your enquiry. Please try again.");
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+
+
+  // Handle dismissing the success/error message
+  const dismissMessage = () => {
+    setStatus("");
+    setError("");
   };
 
   return (
     <Layout>
+      <div className="mt-0">
+        {/* Hero Section */}
         <section
-                  className="relative bg-cover bg-center bg-no-repeat h-[150px] sm:h-[200px] md:h-[250px] flex items-center"
-                  style={{ backgroundImage: `url("https://eyecix.com/html/moverspackers/extra-images/subheader-image.jpg")` }}
-                >
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/40"></div>
-        
-                  <div className="container mx-auto px-4 sm:px-6 lg:px-16 relative z-10 flex flex-col lg:flex-row items-center gap-10">
-                    {/* Left Side: Text */}
-                    <div className="text-center lg:text-left lg:w-1/2 text-white">
-                      <h5 className="text-lg sm:text-xl font-semibold tracking-wide uppercase text-white-400">
-                        ENQUIRY
-                      </h5>
-        
-                      {/* Link to Home */}
-                      <h1 className="text-sm sm:text-base">
-                        <Link to="/" className="text-white-500 hover:text-yellow-400 transition-colors">
-                          Homepage
-                        </Link>{" "}
-                        /  Enquiry
-                      </h1>
-                    </div>
-                  </div>
-                </section>
-        
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-16">
-          <div className="text-center mb-12 relative">
-              <span className="absolute inset-0 flex items-center justify-center pointer-events-none text-[120px] md:text-[80px] font-bold text-gray-100">
-                01
-              </span>
-              <h1 className="text-3xl md:text-4xl font-bold relative z-10">
-                <span className="text-gray-900">Get a free</span>{" "}
-                <span className="text-yellow-500"> Enquiry</span>
+          className="relative bg-cover bg-center bg-no-repeat h-[150px] sm:h-[200px] flex items-center"
+          style={{ backgroundImage: `url("https://eyecix.com/html/moverspackers/extra-images/subheader-image.jpg")` }}
+        >
+          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-16 relative z-10 flex flex-col lg:flex-row items-center gap-6 sm:gap-10">
+            <div className="text-center lg:text-left lg:w-1/2 text-white">
+              <h5 className="text-lg sm:text-xl font-semibold tracking-wide uppercase text-white">
+                Enquiry
+              </h5>
+              <h1 className="text-base sm:text-lg">
+                <Link to="/" className="text-white hover:text-yellow-500">
+                  Homepage
+                </Link>{" "}
+                / Enquiry
               </h1>
             </div>
+          </div>
+        </section>
 
-          <form
-            onSubmit={handleSubmit}
-            className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg space-y-6"
-          >
-            {/* Name */}
-            <div>
-              <label className="block text-gray-700 mb-2 font-medium">Full Name *</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:outline-none"
-                placeholder="Enter your full name"
-              />
+        <section className="pt-10 sm:pt-16 pb-10 sm:pb-0 bg-white relative">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8 sm:mb-12 relative">
+              <span className="absolute inset-0 flex items-center justify-center pointer-events-none text-[80px] sm:text-[100px] md:text-[120px] font-bold text-gray-100">
+                01
+              </span>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold relative z-10">
+                <span className="text-gray-900">Get</span>{" "}
+                <span className="text-yellow-500">Enquiry</span>
+              </h1>
             </div>
-
-            {/* Phone */}
-            <div>
-              <label className="block text-gray-700 mb-2 font-medium">Phone Number *</label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:outline-none"
-                placeholder="Enter your phone number"
-              />
+            <div className="text-center max-w-xl sm:max-w-2xl mx-auto mb-10 sm:mb-16">
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+              Get your personalized moving quote today! We guarantee a smooth, secure, 
+              and timely relocation with complete pricing transparency from start to finish.
+              </p>
             </div>
+          </div>
+        </section>
 
-            {/* Email */}
-            <div>
-              <label className="block text-gray-700 mb-2 font-medium">Email (optional)</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:outline-none"
-                placeholder="Enter your email"
-              />
-            </div>
-
-            {/* City */}
-            <div>
-              <label className="block text-gray-700 mb-2 font-medium">City *</label>
-              <input
-                type="text"
-                name="city"
-                value={formData.city}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:outline-none"
-                placeholder="Enter your city"
-              />
-            </div>
-
-            {/* Address */}
-            <div>
-              <label className="block text-gray-700 mb-2 font-medium">Address *</label>
-              <textarea
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                required
-                rows="3"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:outline-none"
-                placeholder="Enter your address"
-              />
-            </div>
-
-            {/* List of Services */}
-            <div>
-              <label className="block text-gray-700 mb-2 font-medium">Select Service *</label>
-              <select
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:outline-none"
-              >
-                <option value="">-- Choose a service --</option>
-                <option value="house-shifting">House Shifting</option>
-                <option value="office-relocation">Office Relocation</option>
-                <option value="car-transport">Car Transport</option>
-                <option value="bike-transport">Bike Transport</option>
-                <option value="storage">Storage Services</option>
-                <option value="packing-unpacking">Packing & Unpacking</option>
-              </select>
-            </div>
-
-            {/* Pick-up & Drop Location */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-gray-700 mb-2 font-medium">Pick-up Location *</label>
-                <input
-                  type="text"
-                  name="pickupLocation"
-                  value={formData.pickupLocation}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:outline-none"
-                  placeholder="Enter pick-up location"
-                />
+        <section className="w-full bg-white py-8 sm:py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Submission Status Messages */}
+            {status && (
+              <div className="mb-6 text-center bg-green-100 text-green-600 text-sm sm:text-base p-4 rounded-md flex justify-between items-center">
+                <span>{status}</span>
+                <button onClick={dismissMessage} className="text-green-600 hover:text-green-800">
+                  &times;
+                </button>
               </div>
-
-              <div>
-                <label className="block text-gray-700 mb-2 font-medium">Drop Location *</label>
-                <input
-                  type="text"
-                  name="dropLocation"
-                  value={formData.dropLocation}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:outline-none"
-                  placeholder="Enter drop location"
-                />
+            )}
+            {error && (
+              <div className="mb-6 text-center bg-red-100 text-red-600 text-sm sm:text-base p-4 rounded-md flex justify-between items-center">
+                <span>{error}</span>
+                <button onClick={dismissMessage} className="text-red-600 hover:text-red-800">
+                  &times;
+                </button>
               </div>
-            </div>
+            )}
 
+            {/* Form Grid */}
+            <form onSubmit={handleSubmit} id="quote-form" className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+              {/* Left: Contact Information */}
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-4 border-b border-accent inline-block">
+                  Contact Information
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      First Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 bg-slate-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 px-3 py-2 rounded-md bg-slate-100 focus:outline-none focus:ring-2 focus:ring-accent"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 px-3 py-2 rounded-md bg-slate-100 focus:outline-none focus:ring-2 focus:ring-accent"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Phone
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 px-3 py-2 rounded-md bg-slate-100 focus:outline-none focus:ring-2 focus:ring-accent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Country
+                    </label>
+                    <input
+                      type="text"
+                      name="country"
+                      value={formData.country}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 px-3 py-2 rounded-md bg-slate-100 focus:outline-none focus:ring-2 focus:ring-accent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      ZIP
+                    </label>
+                    <input
+                      type="text"
+                      name="zip"
+                      value={formData.zip}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 px-3 py-2 rounded-md bg-slate-100 focus:outline-none focus:ring-2 focus:ring-accent"
+                    />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Address
+                    </label>
+                    <textarea
+                      rows="3"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 px-3 py-2 rounded-md bg-slate-100 focus:outline-none focus:ring-2 focus:ring-accent"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              {/* Right: Move Detail */}
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-4 border-b border-accent inline-block">
+                  Move Detail
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Requested Move Date
+                    </label>
+                    <input
+                      type="date"
+                      name="moveDate"
+                      value={formData.moveDate}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 bg-slate-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Type Of Residence
+                    </label>
+                    <input
+                      type="text"
+                      name="residenceType"
+                      value={formData.residenceType}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 bg-slate-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Moving From ZIP
+                    </label>
+                    <input
+                      type="text"
+                      name="fromZip"
+                      value={formData.fromZip}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 bg-slate-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Describe From Location
+                    </label>
+                    <input
+                      type="text"
+                      name="fromLocation"
+                      value={formData.fromLocation}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 bg-slate-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Moving To ZIP
+                    </label>
+                    <input
+                      type="text"
+                      name="toZip"
+                      value={formData.toZip}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 bg-slate-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                      Describe To Location
+                    </label>
+                    <input
+                      type="text"
+                      name="toLocation"
+                      value={formData.toLocation}
+                      onChange={handleChange}
+                      className="w-full border border-gray-300 bg-slate-100 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
             {/* Submit Button */}
-            <div className="text-center">
-              <Button type="submit" className="bg-accent hover:bg-accent/90 text-white font-semibold px-8 py-2 rounded-lg">
-                Submit Enquiry
+            <div className="mt-8 sm:mt-10 text-center">
+              <Button
+                type="submit"
+                form="quote-form"
+                className="bg-accent hover:bg-accent/90 text-white font-bold px-6 sm:px-8 py-2 sm:py-3 rounded-md flex items-center justify-center mx-auto"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="animate-spin mr-2" size={20} />
+                    Submitting...
+                  </>
+                ) : (
+                  "Enquiry"
+                )}
               </Button>
             </div>
-          </form>
-        </div>
-      </section>
+          </div>
+        </section>
+
+        <section className="py-8 sm:py-10 px-4 sm:px-6 lg:px-24">
+          <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-6 lg:gap-8">
+            {/* Phone */}
+            <div className="flex-1 bg-gray-900 text-white p-4 sm:p-5 rounded-lg">
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-amber-500 text-xs sm:text-sm font-semibold flex-1">Contact Us At</h3>
+                <Phone className="text-amber-500 ml-2" size={20} />
+              </div>
+              <div className="text-xs sm:text-sm space-y-1">
+                <p>+91 8249778018</p>
+                {/* <p>+123 456 78</p> */}
+              </div>
+            </div>
+            {/* Email */}
+            <div className="flex-1 bg-gray-900 text-white p-4 sm:p-5 rounded-lg">
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-amber-500 text-xs sm:text-sm font-semibold flex-1">Mail Us At</h3>
+                <Mail className="text-amber-500 ml-2" size={20} />
+              </div>
+              <div className="text-xs sm:text-sm space-y-1">
+                <p>drmpackersandmovers@gmail.com</p>
+                {/* <p>Movers@abc.com</p> */}
+              </div>
+            </div>
+            {/* Location */}
+            <div className="flex-1 bg-gray-900 text-white p-4 sm:p-5 rounded-lg">
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-amber-500 text-xs sm:text-sm font-semibold flex-1">Find Us At</h3>
+                <MapPin className="text-amber-500 ml-2" size={20} />
+              </div>
+              <div className="text-xs sm:text-sm space-y-1">
+                <p>DRM PACKERS AND MOVERS,
+PLOT NO 1530, SATYAVIHAR, Rasulgarh, MANCHESWAR, BHUBANESWAR, Khurdha, PIN - 751010</p>
+                {/* <p>convallis egestas</p> */}
+              </div>
+            </div>
+            {/* Social Media */}
+            <div className="flex-1 bg-gray-900 text-white p-4 sm:p-5 rounded-lg">
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-amber-500 text-xs sm:text-sm font-semibold flex-1">Follow Us</h3>
+                <Facebook className="text-amber-500 ml-2" size={20} />
+              </div>
+              <div className="text-xs sm:text-sm space-y-1">
+                <a href="https://www.facebook.com/p/DRM-Packers-And-Movers-100090288291557/" target="blank">@DRM-Packers-And-Movers</a>
+                {/* <p>facebook.com/Movers</p> */}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* <section className="py-10 sm:py-16 bg-white relative">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8 sm:mb-12 relative">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span className="text-[80px] sm:text-[100px] md:text-[120px] font-bold text-gray-100">02</span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold relative z-10">
+                <span className="text-gray-900">Our</span>{" "}
+                <span className="text-yellow-500">Partners</span>
+              </h1>
+            </div>
+            <div className="text-center max-w-xl sm:max-w-2xl mx-auto mb-10 sm:mb-16">
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                We’re proud to collaborate with trusted partners who help us deliver reliable, efficient,
+                 and world-class moving and logistics solutions across the country.
+              </p>
+            </div>
+             <Partners /> 
+          </div>
+        </section> */}
+      </div>
     </Layout>
   );
 };
+
 
 export default Enquiry;

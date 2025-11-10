@@ -244,31 +244,31 @@ const Servicedetail = () => {
 
                                 <div className="space-y-2">
                                     <div className="bg-slate-100 p-3  hover:bg-orange-400 transition-colors duration-200">
-                                        <a href="404.html" className="text-black text-sm block w-full">
+                                        <a href="#" className="text-black text-sm block w-full">
                                             Commercial Cleaning
                                         </a>
                                     </div>
 
                                     <div className="bg-slate-100 p-3 hover:bg-orange-400 transition-colors duration-200">
-                                        <a href="404.html" className="text-black text-sm block w-full">
+                                        <a href="#" className="text-black text-sm block w-full">
                                             Ground Maintance
                                         </a>
                                     </div>
 
                                     <div className="bg-slate-100 p-3  hover:bg-orange-400 transition-colors duration-200">
-                                        <a href="404.html" className="text-black text-sm block w-full">
+                                        <a href="#" className="text-black text-sm block w-full">
                                             Moving
                                         </a>
                                     </div>
 
                                     <div className="bg-slate-100 p-3  hover:bg-orange-400 transition-colors duration-200">
-                                        <a href="404.html" className="text-black text-sm block w-full">
+                                        <a href="#" className="text-black text-sm block w-full">
                                             Uncetagorized
                                         </a>
                                     </div>
 
                                     <div className="bg-white p-3  hover:bg-orange-600 transition-colors duration-200">
-                                        <a href="404.html" className="text-balack text-sm block w-full">
+                                        <a href="#" className="text-balack text-sm block w-full">
                                             Window Cleaning
                                         </a>
                                     </div>

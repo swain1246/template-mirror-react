@@ -169,18 +169,18 @@ const Footer = () => {
               >
                 <Facebook size={20} />
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="text-muted-foreground hover:text-accent transition-colors"
               >
                 <Twitter size={20} />
-              </a>
-              <a
+              </a> */}
+              {/* <a
                 href="#"
                 className="text-muted-foreground hover:text-accent transition-colors"
               >
                 <Linkedin size={20} />
-              </a>
+              </a> */}
               <a
                 href="https://www.youtube.com/@drmpackersandmovers1043"
                 target="blank"
@@ -199,74 +199,74 @@ const Footer = () => {
             </h3>
             <div className="grid grid-cols-2 gap-y-3 gap-x-6">
               <a
-                href="#"
+                href="/"
                 className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-                Property
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-                Property List
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-                Typography
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-                Our blog
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-                Socials
-              </a>
-              <a
-                href="/Contact"
-                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-                Contact us
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-                Person Boxes
+               Home
               </a>
               <a
                 href="/About"
                 className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-                About us
+                About Us
               </a>
               <a
-                href="#"
+                href="/Servicedetail"
                 className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-                Agent
+              Services
+              </a>
+              <a
+                href="/Successstory"
+                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
+                Success Story
+              </a>
+              <a
+                href="/Contact"
+                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
+                Contact Us
+              </a>
+              {/* <a
+                href="/OurTeam"
+                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
+                Our Team
+              </a> */}
+              {/* <a
+                href="/Faq"
+                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
+                Faq
+              </a> */}
+              {/* <a
+                href="/Our-presence"
+                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
+                Our Presence
+              </a> */}
+              {/* <a
+                href="/Enquiry"
+                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
+                Enquiry
+              </a> */}
+              <a
+                href="/Quote"
+                className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
+                Get a quote
               </a>
             </div>
           </div>

@@ -17,8 +17,8 @@ const BottomNav = () => {
   const navItems = [
     { path: "/", icon: Home, label: "Home" },
     { path: "/About", icon: Info, label: "About" },
-    { path: "/Enquiry", icon: MessageCircle, label: "Enquiry" },
-    { path: "/Servicedetail", icon: FileText, label: "Services" },
+    // { path: "/Enquiry", icon: MessageCircle, label: "Enquiry" },
+    // { path: "/Servicedetail", icon: FileText, label: "Services" },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -92,14 +92,14 @@ const BottomNav = () => {
                   <span className="text-gray-700">About Us</span>
                 </Link>
 
-                <Link
+                {/* <Link
                   to="/Services"
                   onClick={() => setIsMenuOpen(false)}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 transition-colors"
                 >
                   <FileText size={20} className="text-gray-600" />
                   <span className="text-gray-700">Our Services</span>
-                </Link>
+                </Link> */}
 
                 <Link
                   to="/Contact"
@@ -119,14 +119,14 @@ const BottomNav = () => {
                   <span className="text-gray-700">Blog</span>
                 </Link> */}
 
-                <Link
+                {/* <Link
                   to="/FAQ"
                   onClick={() => setIsMenuOpen(false)}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 transition-colors"
                 >
                   <Info size={20} className="text-gray-600" />
                   <span className="text-gray-700">FAQ</span>
-                </Link>
+                </Link> */}
               </div>
 
               {/* Quick Actions */}

@@ -111,9 +111,16 @@ const Header = () => {
             >
               HOME
             </Link>
-
+ <Link
+              to="/About"
+              className={`text-sm font-semibold hover:text-accent transition-colors ${
+                isActiveLink("/About") ? "border-b-2 border-accent pb-1" : ""
+              }`}
+            >
+              ABOUT US
+            </Link>
             {/* About Dropdown */}
-            <li
+            {/* <li
               className="relative list-none"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -158,7 +165,7 @@ const Header = () => {
                   ))}
                 </ul>
               )}
-            </li>
+            </li> */}
 
             <Link
               to="/Servicedetail"
