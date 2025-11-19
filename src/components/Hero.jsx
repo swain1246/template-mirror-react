@@ -1,8 +1,15 @@
 // src/components/Hero.tsx
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate('/contact');
+  };
+
   return (
     <section className="relative min-h-[85vh] mt-0 flex items-stretch overflow-hidden">
       {/* Background Image */}
@@ -33,12 +40,12 @@ const Hero = () => {
               {/* Heading - Animation from top */}
               <div className="animate-fadeInDown">
                 <h1 className="text-white leading-tight mb-6">
-                  <span className="text-base sm:text-lg md:text-xl font-medium block mb-2">WE PROVIDE</span>
-                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-wider block mb-2">
-                    <span className="text-white">WORLD CLASS</span>{" "}
-                    <span className="text-yellow-300">LOGISTIC</span>
+                  <span className="text-base sm:text-lg md:text-xl font-medium block mb-2">We’re Top</span>
+                  <span className="text-1xl sm:text-2xl md:text-3xl lg:text-2xl font-medium tracking-wider block mb-2">
+                    <span className="text-white">Packers and Movers in <span className="text-yellow-300">Bhubaneswar</span></span>{" "}
+                    {/* <span className="text-yellow-300">LOGISTIC</span> */}
                   </span>
-                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">SERVICES</span>
+                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl">Moving Homes and Businesses Across India</span>
                 </h1>
               </div>
 
@@ -55,17 +62,18 @@ const Hero = () => {
               {/* Buttons - Animation from bottom */}
               <div className="animate-fadeInUp flex flex-wrap gap-3 sm:gap-4">
                 <Button 
+                onClick={handleContactClick}
                   className="bg-transparent border-2 border-white text-white hover:bg-yellow-300 hover:text-black hover:border-yellow-300 font-bold px-4 sm:px-6 py-2 sm:py-2.5 flex items-center gap-2 rounded-none transition-all duration-1000 text-sm sm:text-base"
                 >
-                  Get Started
+                  Contact Us
                   <ArrowRight size={16} />
                 </Button>
-                <Button
+                {/* <Button
                   variant="outline"
                   className="bg-transparent border-white text-white hover:bg-yellow-300 hover:text-black hover:border-yellow-300 font-bold px-4 sm:px-6 py-2 sm:py-2.5 rounded-none transition-all duration-1000 text-sm sm:text-base"
                 >
                   Learn More
-                </Button>
+                </Button> */}
               </div>
             </div>
           </div>

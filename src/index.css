@@ -174,18 +174,18 @@ All colors MUST be HSL.
 }
 
 .animate-fadeInDown {
-  animation: fadeInDown 3s ease-in-out infinite;
+  animation: fadeInDown 3s ease-in-out ;
   animation-delay: 1s;
 }
 
 .animate-fadeIn {
-  animation: fadeIn 3s ease-in-out infinite;
+  animation: fadeIn 3s ease-in-out;
   animation-delay: 1s;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .animate-fadeInUp {
-  animation: fadeInUp 3s ease-in-out infinite;
+  animation: fadeInUp 3s ease-in-out;
   animation-delay: 1s;
-  opacity: 0;
+  /* opacity: 0; */
 }
