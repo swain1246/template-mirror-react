@@ -133,7 +133,7 @@ const Index = () => {
         </section>
 
         {/* Team Section */}
-        <section className="py-6 sm:py-8 md:py-12 lg:py-16 bg-white relative">
+        {/* <section className="py-6 sm:py-8 md:py-12 lg:py-16 bg-white relative">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-12 relative">
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -156,7 +156,7 @@ const Index = () => {
             </div>
             <Team />
           </div>
-        </section>
+        </section> */}
 
         {/* Testimonials Section */}
         <Testimonials />
@@ -167,7 +167,7 @@ const Index = () => {
             <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-12 relative">
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <span className="text-[50px] sm:text-[60px] md:text-[80px] lg:text-[100px] font-bold text-gray-100">
-                  05
+                  04
                 </span>
               </div>
               <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold relative z-10">
@@ -187,7 +187,7 @@ const Index = () => {
         </section>
 
         {/* Partners Section */}
-        <section className="py-6 sm:py-8 md:py-12 lg:py-16 bg-white relative">
+        {/* <section className="py-6 sm:py-8 md:py-12 lg:py-16 bg-white relative">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-12 relative">
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -209,7 +209,7 @@ const Index = () => {
             </div>
             <Partners />
           </div>
-        </section>
+        </section> */}
       </div>
     </Layout>
   );
