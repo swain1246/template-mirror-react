@@ -92,62 +92,59 @@ const Footer = () => {
   </div>
 */}
 
-
-
       {/* Contact Cards Section */}
       <div className="container mx-auto px-4 py-12">
-       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-    {/* Meet Us At */}
-    <div className="bg-footerDarker border border-muted/20 rounded-lg p-6 sm:p-8 flex  justify-between hover:border-accent/50 transition-colors">
-      <div className="flex-1">
-        <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">
-          Meet Us At
-        </h3>
-        <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed break-words">
-          DRM PACKERS AND MOVERS, <br />
-          PLOT NO 1530, SATYAVIHAR, Rasulgarh, MANCHESWAR, BHUBANESWAR,
-          Khurdha, PIN - 751010
-        </p>
-      </div>
-        <MapPin
-    className="text-accent flex-shrink-0 ml-4 w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10"
-    strokeWidth={1.5}
-  />
-    </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {/* Meet Us At */}
+          <div className="bg-footerDarker border border-muted/20 rounded-lg p-6 sm:p-8 flex  justify-between hover:border-accent/50 transition-colors">
+            <div className="flex-1">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">
+                Meet Us At
+              </h3>
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed break-words">
+                DRM PACKERS AND MOVERS, <br />
+                PLOT NO 1530, SATYAVIHAR, Rasulgarh, MANCHESWAR, BHUBANESWAR,
+                Khurdha, PIN - 751010
+              </p>
+            </div>
+            <MapPin
+              className="text-accent flex-shrink-0 ml-4 w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10"
+              strokeWidth={1.5}
+            />
+          </div>
 
-    {/* Contact Us At */}
-    <div className="bg-footerDarker border border-muted/20 rounded-lg p-6 sm:p-8 flex  justify-between hover:border-accent/50 transition-colors">
-      <div className="flex-1">
-        <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">
-          Contact Us At
-        </h3>
-        <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
-          +91 8249778018
-        </p>
-      </div>
-      <Phone
-       className="text-accent flex-shrink-0 ml-4 w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10"
-    
-        strokeWidth={1.5}
-      />
-    </div>
+          {/* Contact Us At */}
+          <div className="bg-footerDarker border border-muted/20 rounded-lg p-6 sm:p-8 flex  justify-between hover:border-accent/50 transition-colors">
+            <div className="flex-1">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">
+                Contact Us At
+              </h3>
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
+                +91 8249778018
+              </p>
+            </div>
+            <Phone
+              className="text-accent flex-shrink-0 ml-4 w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10"
+              strokeWidth={1.5}
+            />
+          </div>
 
-    {/* Mail Us At */}
-    <div className="bg-footerDarker border border-muted/20 rounded-lg p-6 sm:p-8 flex  justify-between hover:border-accent/50 transition-colors">
-      <div className="flex-1">
-        <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">
-          Mail Us At
-        </h3>
-        <p className="text-xs sm:text-sm md:text-base text-muted-foreground break-all">
-          drmpackersandmovers@gmail.com
-        </p>
-      </div>
-      <Mail
-        className="text-accent flex-shrink-0 ml-4 w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10"
-    strokeWidth={1.5}
-      />
-    </div>
-  </div>
+          {/* Mail Us At */}
+          <div className="bg-footerDarker border border-muted/20 rounded-lg p-6 sm:p-8 flex  justify-between hover:border-accent/50 transition-colors">
+            <div className="flex-1">
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white">
+                Mail Us At
+              </h3>
+              <p className="text-xs sm:text-sm md:text-base text-muted-foreground break-all">
+                drmpackersandmovers@gmail.com
+              </p>
+            </div>
+            <Mail
+              className="text-accent flex-shrink-0 ml-4 w-8 h-8 sm:w-8 sm:h-8 md:w-10 md:h-10"
+              strokeWidth={1.5}
+            />
+          </div>
+        </div>
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-12 border-t border-muted/20">
           {/* About Us */}
@@ -157,9 +154,12 @@ const Footer = () => {
               <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-accent"></span>
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              We are a trusted name in relocation and logistics, dedicated to making every move simple, safe, and efficient.
-              With years of experience and a team of skilled professionals, we handle everything from packing and loading
-              to transportation and delivery — ensuring your belongings reach their destination with utmost care.
+              We are a trusted name in relocation and logistics, dedicated to
+              making every move simple, safe, and efficient. With years of
+              experience and a team of skilled professionals, we handle
+              everything from packing and loading to transportation and delivery
+              — ensuring your belongings reach their destination with utmost
+              care.
             </p>
             <div className="flex gap-3">
               <a
@@ -203,7 +203,7 @@ const Footer = () => {
                 className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-               Home
+                Home
               </a>
               <a
                 href="/About"
@@ -217,7 +217,7 @@ const Footer = () => {
                 className="text-muted-foreground hover:text-accent transition-colors flex items-center gap-2"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground"></span>
-              Services
+                Services
               </a>
               <a
                 href="/Successstory"
@@ -278,7 +278,8 @@ const Footer = () => {
               <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-accent"></span>
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Join our newsletter to get updates, expert moving advice, and special deals — straight to your inbox.
+              Join our newsletter to get updates, expert moving advice, and
+              special deals — straight to your inbox.
             </p>
             <div className="space-y-4">
               <Input
@@ -298,7 +299,7 @@ const Footer = () => {
       <div className="bg-footerDarker border-t border-muted/20 py-6">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p>© 2025. All Right Reserved - by Vichaarlab</p>
+            <p>© 2025. All Right Reserved - <a href="https://www.vichaarlab.com/" target="blank">by Vichaarlab</a></p>
             <div className="flex gap-6">
               <a href="/Terms" className="hover:text-accent transition-colors">
                 Terms and conditions
