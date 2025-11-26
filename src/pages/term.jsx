@@ -155,9 +155,11 @@ const Terms = () => {
                 us at:
               </p>
               <ul className="pl-6 list-disc space-y-1">
-                <li>Email: info@drmpackersmovers.com</li>
-                <li>Phone: +91 98765 43210</li>
-                <li>Address: 123 Moving Street, New Delhi, India</li>
+                <li>Email: drmpackersandmovers@gmail.com</li>
+                <li>Phone: +91 8249778018 </li>
+                <li>Address: DRM PACKERS AND MOVERS, <br />
+                PLOT NO 1530, SATYAVIHAR, Rasulgarh, MANCHESWAR,<br/> BHUBANESWAR,
+                Khurdha, PIN - 751010</li>
               </ul>
 
               <p className="mt-10 text-gray-600 text-sm">

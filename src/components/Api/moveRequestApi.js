@@ -2,6 +2,7 @@
 
 export const submitMoveRequest = async (formData) => {
   const API_URL = `${import.meta.env.VITE_APP_API_BASE_URL}drm/move-request/`;
+  debugger;
 
   // Prepare backend payload (keys must match Django fields)
   const payload = {
@@ -18,6 +19,7 @@ export const submitMoveRequest = async (formData) => {
     describe_from_location: formData.fromLocation || "",
     moving_to_zip: formData.toZip || "",
     describe_to_location: formData.toLocation || "",
+    message: formData.message || "",
   };
 
   console.log("Submitting to API:", API_URL, payload);

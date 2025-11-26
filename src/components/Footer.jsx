@@ -299,7 +299,7 @@ const Footer = () => {
       <div className="bg-footerDarker border-t border-muted/20 py-6">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p>© 2025. All Right Reserved - <a href="https://www.vichaarlab.com/" target="blank">by Vichaarlab</a></p>
+            <p>© 2025. All Right Reserved - <strong><a href="https://www.vichaarlab.com/" target="blank">by Vichaarlab</a></strong></p>
             <div className="flex gap-6">
               <a href="/Terms" className="hover:text-accent transition-colors">
                 Terms and conditions
