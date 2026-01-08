@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin, Facebook, Loader2 } from "lucide-react";
 import React, { useState } from "react";
 import { Button } from "../components/ui/button";
 import Partners from "../components/Partners";
-import { submitMoveRequest } from "@/components/api/moveRequestApi"
+// import { submitMoveRequest } from "@/components/api/moveRequestApi"
 
 const Quote = () => {
   // Form state

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Layout from "@/components/Layout"; // ✅ Assuming you have a Layout wrapper
 import { Button } from "@/components/ui/button"; // ✅ Using your existing button component
 import { Link } from "react-router-dom";
-import { submitMoveRequest } from "@/components/api/moveRequestApi"
+// import { submitMoveRequest } from "@/components/api/moveRequestApi"
 import { Phone, Mail, MapPin, Facebook, Loader2 } from "lucide-react";
 import Partners from "../components/Partners";
 const Enquiry = () => {
