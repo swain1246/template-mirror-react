@@ -48,7 +48,7 @@ const GetAQuote = () => {
     }
 
     try {
-      const result = await submitMoveRequest(formData);
+      // const result = await submitMoveRequest(formData);
       setStatus("Your enquiry has been submitted successfully!");
       console.log("Response:", result);
 

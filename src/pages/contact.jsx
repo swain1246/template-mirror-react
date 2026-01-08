@@ -81,7 +81,7 @@ const Contact = () => {
         // Or just ignore it – it won't break anything
       };
 
-      await submitMoveRequest(payload);
+      // await submitMoveRequest(payload);
       setStatus(
         "Thank you! Your message has been sent successfully. We'll get back to you soon."
       );
